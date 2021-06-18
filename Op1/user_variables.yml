@@ -1,0 +1,4 @@
+haproxy_keepalived_external_vip_cidr: "172.22.122.5/32"
+haproxy_keepalived_internal_vip_cidr: "{{internal_lb_vip_address}}/32"
+haproxy_keepalived_external_interface: enp1s0f0
+haproxy_keepalived_internal_interface: br-mgmt
