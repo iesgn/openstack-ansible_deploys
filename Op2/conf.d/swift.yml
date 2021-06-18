@@ -1,0 +1,55 @@
+---
+global_overrides:
+  swift:
+    part_power: 10
+    weight: 100
+    min_part_hours: 1
+    repl_number: 3
+    storage_network: 'br-storage'
+#    replication_network: 'br-repl'
+    drives:
+      - name: sdb5
+      - name: sdb6
+      - name: sdb7
+      - name: sdb8
+      - name: sdb9
+    mount_point: /srv/node
+    account:
+    container:
+    storage_policies:
+      - policy:
+          name: gold
+          index: 0
+          default: True
+      - policy:
+          name: silver
+          index: 1
+          repl_number: 3
+          deprecated: True
+#    statsd_host: openstack.XXX.XXX
+#    statsd_port: 8125
+#    statsd_metric_prefix:
+#    statsd_default_sample_rate: 1.0
+#    statsd_sample_rate_factor: 1.0
+
+swift-proxy_hosts:
+  osa1:
+    ip: 172.29.236.1
+#    statsd_metric_prefix: proxy01
+  osa2:
+    ip: 172.29.236.2
+#    statsd_metric_prefix: proxy02
+  osa3:
+    ip: 172.29.236.3
+#    statsd_metric_prefix: proxy03
+
+swift_hosts:
+  osa1:
+    ip: 172.29.236.1
+#         statsd_metric_prefix: node1
+  osa2:
+    ip: 172.29.236.2
+#         statsd_metric_prefix: node2
+  osa3:
+    ip: 172.29.236.3
+#         statsd_metric_prefix: node3
